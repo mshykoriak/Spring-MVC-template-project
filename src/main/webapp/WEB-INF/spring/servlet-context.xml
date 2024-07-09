@@ -16,7 +16,12 @@
         http://www.springframework.org/schema/data/jpa/spring-jpa.xsd">
 
     <mvc:annotation-driven/>
-    <context:component-scan base-package="com.mshykoriak.controller"/>
+
+    <context:component-scan base-package="com.mshykoriak.controller, com.mshykoriak.service"/>
+<!--    Uncomment to use instead component-scan base-package="com.mshykoriak.controller". Both lines do the same-->
+<!--    <bean class="com.mshykoriak.controller.BookController">-->
+<!--        <property name="bookRepository" ref="bookRepository"/>-->
+<!--    </bean>-->
     <bean class = "org.springframework.web.servlet.view.InternalResourceViewResolver">
         <property name = "prefix" value = "/WEB-INF/jsp/" />
         <property name = "suffix" value = ".jsp" />

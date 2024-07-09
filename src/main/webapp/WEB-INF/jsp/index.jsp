@@ -11,6 +11,42 @@
       </style>
    </head>
    <body>
+   <h2>Delete Book</h2>
+   <form:form method="POST" action="${pageContext.request.contextPath}/deleteBook">
+   <label for="id">Book ID</label>
+   <input type="text" id="id" name="id">
+   <button type="submit">Delete</button>
+   </form:form>
+
+    <h2>Add Book</h2>
+   <form:form method="POST" action="${pageContext.request.contextPath}/addBook" modelAttribute="book">
+                    <table>
+                                    <tr>
+                                       <td><form:label path="id">ID</form:label></td>
+                                       <td><form:input path="id"/></td>
+                                    </tr>
+                                    <tr>
+                                        <td><form:label path="name">Name</form:label></td>
+                                        <td><form:input path="name"/></td>
+                                    </tr>
+                                    <tr>
+                                        <td><form:label path="author">Author</form:label></td>
+                                        <td><form:input path="author"/></td>
+                                    </tr>
+                                    <tr>
+                                        <td><form:label path="language">Language</form:label></td>
+                                        <td><form:input path="language"/></td>
+                                    </tr>
+                                    <tr>
+                                        <td><form:label path="numberOfPages">Number of pages</form:label></td>
+                                        <td><form:input path="numberOfPages"/></td>
+                                    </tr>
+                                    <tr>
+                                        <td><input type="submit" value="Add/Edit"/></td>
+                                    </tr>
+                    </table>
+          </form:form>
+
     <table>
         <tr>
             <th>ID</th>
@@ -30,32 +66,6 @@
        </c:forEach>
        </table>
 
-       <form:form method="POST" action="/addBook" modelAttribute="book">
-                 <table>
-                                 <tr>
-                                    <td><form:label path="id">ID</form:label></td>
-                                    <td><form:input path="id"/></td>
-                                 </tr>
-                                 <tr>
-                                     <td><form:label path="name">Name</form:label></td>
-                                     <td><form:input path="name"/></td>
-                                 </tr>
-                                 <tr>
-                                     <td><form:label path="author">Author</form:label></td>
-                                     <td><form:input path="author"/></td>
-                                 </tr>
-                                 <tr>
-                                     <td><form:label path="language">Language</form:label></td>
-                                     <td><form:input path="language"/></td>
-                                 </tr>
-                                 <tr>
-                                     <td><form:label path="numberOfPages">Number of pages</form:label></td>
-                                     <td><form:input path="numberOfPages"/></td>
-                                 </tr>
-                                 <tr>
-                                     <td><input type="submit" value="Add/Edit"/></td>
-                                 </tr>
-                 </table>
-       </form:form>
+
    </body>
 </html>
