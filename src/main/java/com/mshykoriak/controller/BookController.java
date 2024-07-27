@@ -2,6 +2,7 @@ package com.mshykoriak.controller;
 
 import com.mshykoriak.entity.Book;
 import com.mshykoriak.service.BookService;
+import jakarta.validation.Valid;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,7 +11,6 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
-import javax.validation.Valid;
 
 
 @Controller
@@ -35,17 +35,13 @@ public class BookController {
         }
         model.addAttribute("bookList", bookService.findAll());
         model.addAttribute("book", new Book());
-        //Book entity = bookRepository.findById(book.getId().longValue()).orElse(null);
-//        if (entity == null) {
-//
-//        }
         bookService.addOrUpdate(book);
         return "redirect:/";
     }
 
     @PostMapping("/deleteBook")
     public String deleteBook(@RequestParam("id") Long id, Model model) {
-        bookService.deleteById(Long.valueOf(id));
+        bookService.deleteById(id);
         model.addAttribute("bookList", bookService.findAll());
         model.addAttribute("book", new Book());
         return "redirect:/";
