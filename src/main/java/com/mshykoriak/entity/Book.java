@@ -4,6 +4,8 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
 
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Size;
 import java.util.Objects;
 
 @Entity
@@ -11,8 +13,14 @@ public class Book {
     @Id
     @GeneratedValue
     private Integer id;
+    @NotBlank(message = "Name is required")
+    @Size(min = 5, max = 100, message = "Name length must be in range from 5 characters to 100.")
     private String name;
+    @NotBlank(message = "Author is required")
+    @Size(min = 3, max = 50, message = "Author field length must be in range from 3 characters to 50.")
     private String author;
+    @NotBlank(message = "Language is required")
+    @Size(min = 3, max = 20, message = "Language field length must be in range from 3 to 20.")
     private String language;
     private int numberOfPages;
 

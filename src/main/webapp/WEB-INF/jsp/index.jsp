@@ -9,40 +9,56 @@
         border: 1px solid black;
       }
       </style>
+        <script type="text/javascript">
+              function checkAndSubmitForm() {
+                  var idField = document.getElementById("id");
+
+                  if (idField.value.trim() === "") {
+                      idField.value = "0";
+                  }
+
+                  document.getElementById("bookForm").submit();
+              }
+          </script>
    </head>
    <body>
    <h2>Delete Book</h2>
    <form:form method="POST" action="${pageContext.request.contextPath}/deleteBook">
    <label for="id">Book ID</label>
-   <input type="text" id="id" name="id">
+   <input type="text" name="id">
    <button type="submit">Delete</button>
    </form:form>
 
     <h2>Add Book</h2>
-   <form:form method="POST" action="${pageContext.request.contextPath}/addBook" modelAttribute="book">
+   <form:form method="POST" action="${pageContext.request.contextPath}/addBook" modelAttribute="book" id="bookForm">
                     <table>
                                     <tr>
                                        <td><form:label path="id">ID</form:label></td>
-                                       <td><form:input path="id"/></td>
+                                       <td><form:input path="id" id="id"/></td>
+                                       <td><form:errors path="id" cssClass="error"/></td>
                                     </tr>
                                     <tr>
                                         <td><form:label path="name">Name</form:label></td>
                                         <td><form:input path="name"/></td>
+                                        <td><form:errors path="name" cssClass="error"/></td>
                                     </tr>
                                     <tr>
                                         <td><form:label path="author">Author</form:label></td>
                                         <td><form:input path="author"/></td>
+                                        <td><form:errors path="author" cssClass="error"/></td>
                                     </tr>
                                     <tr>
                                         <td><form:label path="language">Language</form:label></td>
                                         <td><form:input path="language"/></td>
+                                        <td><form:errors path="language" cssClass="error"/></td>
                                     </tr>
                                     <tr>
                                         <td><form:label path="numberOfPages">Number of pages</form:label></td>
                                         <td><form:input path="numberOfPages"/></td>
+                                        <td><form:errors path="numberOfPages" cssClass="error"/></td>
                                     </tr>
                                     <tr>
-                                        <td><input type="submit" value="Add/Edit"/></td>
+                                        <td><button type="button" onClick="checkAndSubmitForm()">Add/Edit</button></td>
                                     </tr>
                     </table>
           </form:form>
