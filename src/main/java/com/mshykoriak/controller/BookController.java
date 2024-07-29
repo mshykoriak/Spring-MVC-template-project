@@ -17,7 +17,6 @@ import org.springframework.web.bind.annotation.*;
 public class BookController {
     private static final Logger logger = LoggerFactory.getLogger(BookController.class);
     private static final String MAIN_PAGE = "index";
-
     private BookService bookService;
 
     @GetMapping("/")
